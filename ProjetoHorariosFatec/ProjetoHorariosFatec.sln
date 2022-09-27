@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoHorariosFatec", "ProjetoHorariosFatec\ProjetoHorariosFatec.csproj", "{DBA55CCD-5CC5-4520-8011-D4A2D941369F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBA55CCD-5CC5-4520-8011-D4A2D941369F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBA55CCD-5CC5-4520-8011-D4A2D941369F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBA55CCD-5CC5-4520-8011-D4A2D941369F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBA55CCD-5CC5-4520-8011-D4A2D941369F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1F1F6635-6464-49C1-BF8F-C80BFFBBAF05}
+	EndGlobalSection
+EndGlobal
