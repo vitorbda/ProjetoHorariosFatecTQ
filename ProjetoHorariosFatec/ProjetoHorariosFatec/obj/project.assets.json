@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\grx20\\Documents\\ProjetoHorarios\\ProjetoHorariosFatec\\ProjetoHorariosFatec\\ProjetoHorariosFatec.csproj",
+      "projectUniqueName": "C:\\Users\\grx20\\Documents\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatec\\ProjetoHorariosFatec\\ProjetoHorariosFatec.csproj",
       "projectName": "ProjetoHorariosFatec",
-      "projectPath": "C:\\Users\\grx20\\Documents\\ProjetoHorarios\\ProjetoHorariosFatec\\ProjetoHorariosFatec\\ProjetoHorariosFatec.csproj",
+      "projectPath": "C:\\Users\\grx20\\Documents\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatec\\ProjetoHorariosFatec\\ProjetoHorariosFatec.csproj",
       "packagesPath": "C:\\Users\\grx20\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\grx20\\Documents\\ProjetoHorarios\\ProjetoHorariosFatec\\ProjetoHorariosFatec\\obj\\",
+      "outputPath": "C:\\Users\\grx20\\Documents\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatec\\ProjetoHorariosFatec\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
