@@ -15,10 +15,11 @@ namespace ProjetoHorariosFatec.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IdCurso = table.Column<int>(type: "int", nullable: false),
-                    IdTurno = table.Column<int>(type: "int", nullable: false),
+                    Aula = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IdDia = table.Column<int>(type: "int", nullable: false),
                     Sala = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Bloco = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Bloco = table.Column<int>(type: "int", nullable: false),
+                    Semestre = table.Column<int>(type: "int", nullable: false),
                     Horario = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>

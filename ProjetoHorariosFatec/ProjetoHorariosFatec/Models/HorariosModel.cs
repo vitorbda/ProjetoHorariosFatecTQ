@@ -1,14 +1,16 @@
-﻿namespace ProjetoHorariosFatec.Models
+﻿using ProjetoHorariosFatec.Enums;
+
+namespace ProjetoHorariosFatec.Models
 {
     public class HorariosModel
     {
         public int Id { get; set; }
-        public int IdCurso { get; set; }
-        public int IdTurno { get; set; }
-        public string IdAula { get; set; }
-        public int IdDia { get; set; }
+        public CursoEnum IdCurso { get; set; }
+        public string Aula { get; set; }
+        public DiaEnum IdDia { get; set; }
         public string Sala { get; set; }
-        public string Bloco { get; set; }
+        public BlocoEnum Bloco { get; set; }
+        public SemestreEnum Semestre { get; set; }
         public string Horario { get; set; }
     }
 }

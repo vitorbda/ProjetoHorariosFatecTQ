@@ -1,4 +1,5 @@
-﻿using ProjetoHorariosFatec.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using ProjetoHorariosFatec.Data;
 using ProjetoHorariosFatec.Models;
 
 namespace ProjetoHorariosFatec.Repositorio
@@ -17,12 +18,11 @@ namespace ProjetoHorariosFatec.Repositorio
             if (horariosDB == null) throw new Exception("Houve um erro.");
 
             horariosDB.IdCurso = horario.IdCurso;
-            horariosDB.IdTurno = horario.IdTurno;
             horariosDB.IdDia = horario.IdDia;
             horariosDB.Sala = horario.Sala;
             horariosDB.Bloco = horario.Bloco;
             horariosDB.Horario = horario.Horario;
-            horariosDB.IdAula = horario.IdAula;
+            horariosDB.Aula = horario.Aula;
 
             _bancoContext.Horarios.Update(horariosDB);
             _bancoContext.SaveChanges();
@@ -38,6 +38,15 @@ namespace ProjetoHorariosFatec.Repositorio
         public HorariosModel ListarPorId(int id)
         {
             return _bancoContext.Horarios.FirstOrDefault(x => x.Id == id);
+        }
+
+        public List<HorariosModel> ListarPorIds(int id, int id2)
+        {
+            List<HorariosModel> cmd = _bancoContext.Horarios
+                .FromSqlRaw($"SELECT * FROM dbo.Horarios WHERE IdCurso = {id} AND Semestre = {id2}")
+                .ToList();
+
+            return cmd;
         }
     }
 }

@@ -1,0 +1,350 @@
+﻿@model List<HorariosModel>
+
+@{
+    int seg = 0, ter = 0, quar = 0, quin = 0, sex = 0, sab = 0,
+    Q_cont = 0, S_cont = 0, T_cont = 0, Qi_cont = 0, Sex_cont = 0, Sab_cont = 0;
+}
+@foreach (var menu in Model)
+{
+    seg++;
+    if (seg <= 1){
+        <br />
+        <h1 class="display-4">Segunda-Feira</h1>
+    }
+}
+<table class="display" style="width: 100%">
+    <thead>
+        <tr>
+            <th scope="col">Curso</th>
+            <th scope="col">Aula</th>
+            <th scope="col">Sala</th>
+            <th scope="col">Bloco</th>
+            <th scope="col">Horario</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model != null && Model.Any()){
+            @foreach (var item in Model)
+            {
+                if (item.IdDia == ProjetoHorariosFatec.Enums.DiaEnum.Segunda)
+                {
+                    <tr>
+                        <td id="Curso">
+                        @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsNoite ? "ADS Noite" : "")
+                        @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsTarde ? "ADS Tarde" : "")
+                        @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AgroNoite ? "Agro Noite" : "")
+                        @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AgroTarde ? "Agro Tarde" : "")
+                        @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.ProdNoite ? "PI Noite" : "")
+                        @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.ProdManha ? "PI Manhã" : "")
+                        @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.SiManha ? "SI Noite" : "")
+                    </td>
+                    <td>@item.Aula</td>
+                    <td>@item.Sala</td>
+                    <td>
+                        @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA1 ? "Bloco A1" : "")
+                        @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA2 ? "Bloco A2" : "")
+                    </td>
+                    <td>@item.Horario</td>
+                </tr>
+                }
+            }
+        }
+        else
+        {
+            S_cont++;
+            if (S_cont <= 1)
+            {
+                <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
+            }
+        }
+    </tbody>
+</table><!--    SEGUNDA FEIRA  -->
+
+@foreach (var menu in Model)
+{
+    ter++;
+    if (ter <= 1){
+        <br />
+        <h1 class="display-4">Terça-Feira</h1>
+    }
+}
+<table class="display" style="width: 100%">
+    <thead>
+        <tr>
+            <th scope="col">Curso</th>
+            <th scope="col">Aula</th>
+            <th scope="col">Sala</th>
+            <th scope="col">Bloco</th>
+            <th scope="col">Horario</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                if (item.IdDia == ProjetoHorariosFatec.Enums.DiaEnum.Terca)
+                {
+                    <tr>
+                        <td id="Curso">
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsNoite ? "ADS Noite" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsTarde ? "ADS Tarde" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AgroNoite ? "Agro Noite" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AgroTarde ? "Agro Tarde" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.ProdNoite ? "PI Noite" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.ProdManha ? "PI Manhã" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.SiManha ? "SI Noite" : "")
+                        </td>
+                        <td>@item.Aula</td>
+                        <td>@item.Sala</td>
+                        <td>
+                            @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA1 ? "Bloco A1" : "")
+                            @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA2 ? "Bloco A2" : "")
+                        </td>
+                        <td>@item.Horario</td>
+                    </tr>
+                } else {  
+                    T_cont++;
+                    if (T_cont <= 1)
+                    {
+                        <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
+                    }                
+                }
+            }
+        }
+        else
+        {
+            <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
+        }
+    </tbody>
+</table><!--    TERÇA FEIRA   -->
+
+@foreach (var menu in Model)
+{
+    quar++;
+    if (quar <= 1)
+    {
+        <br />
+        <h1 class="display-4">Quarta-Feira</h1>
+    }
+}
+<table class="display" style="width: 100%"> <!--    QUARTA FEIRA   -->
+    <thead>
+        <tr>
+            <th scope="col">Curso</th>
+            <th scope="col">Aula</th>
+            <th scope="col">Sala</th>
+            <th scope="col">Bloco</th>
+            <th scope="col">Horario</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                if (item.IdDia == ProjetoHorariosFatec.Enums.DiaEnum.Quarta)
+                {                
+                        <tr>
+                            <td id="Curso">
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsNoite ? "ADS Noite" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsTarde ? "ADS Tarde" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AgroNoite ? "Agro Noite" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AgroTarde ? "Agro Tarde" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.ProdNoite ? "PI Noite" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.ProdManha ? "PI Manhã" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.SiManha ? "SI Noite" : "")
+                        </td>
+                        <td>@item.Aula</td>
+                        <td>@item.Sala</td>
+                        <td>
+                            @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA1 ? "Bloco A1" : "")
+                            @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA2 ? "Bloco A2" : "")
+                        </td>
+                        <td>@item.Horario</td>
+                    </tr>                    
+                } else {
+                    Q_cont++;
+                    if (Q_cont <= 1)
+                    {
+                        <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
+                    }
+                }
+            }
+        }
+    </tbody>
+</table>
+
+@foreach (var menu in Model)
+{
+    quin++;
+    if (quin <= 1)
+    {
+        <br />
+        <h1 class="display-4">Quinta-Feira</h1>
+    }
+}
+<table class="display" style="width: 100%">
+    <thead>
+        <tr>
+            <th scope="col">Curso</th>
+            <th scope="col">Aula</th>
+            <th scope="col">Sala</th>
+            <th scope="col">Bloco</th>
+            <th scope="col">Horario</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                if (item.IdDia == ProjetoHorariosFatec.Enums.DiaEnum.Quinta)
+                {
+                    <tr>
+                        <td id="Curso">
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsNoite ? "ADS Noite" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsTarde ? "ADS Tarde" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AgroNoite ? "Agro Noite" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AgroTarde ? "Agro Tarde" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.ProdNoite ? "PI Noite" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.ProdManha ? "PI Manhã" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.SiManha ? "SI Noite" : "")
+                        </td>
+                        <td>@item.Aula</td>
+                        <td>@item.Sala</td>
+                        <td>
+                            @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA1 ? "Bloco A1" : "")
+                            @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA2 ? "Bloco A2" : "")
+                        </td>
+                        <td>@item.Horario</td>
+                    </tr>
+                }
+                else
+                {
+                    Qi_cont++;
+                    if (Qi_cont <= 1)
+                    {
+                        <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
+                    }
+                }
+            }
+        }
+    </tbody>
+</table><!--   QUINTA FEIRA  -->
+
+@foreach (var menu in Model)
+{
+    sex++;
+    if (sex <= 1)
+    {
+        <br />
+        <h1 class="display-4">Sexta-Feira</h1>
+    }
+}
+<table class="display" style="width: 100%">
+    <thead>
+        <tr>
+            <th scope="col">Curso</th>
+            <th scope="col">Aula</th>
+            <th scope="col">Sala</th>
+            <th scope="col">Bloco</th>
+            <th scope="col">Horario</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                if (item.IdDia == ProjetoHorariosFatec.Enums.DiaEnum.Sexta)
+                {
+                    <tr>
+                        <td id="Curso">
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsNoite ? "ADS Noite" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsTarde ? "ADS Tarde" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AgroNoite ? "Agro Noite" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AgroTarde ? "Agro Tarde" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.ProdNoite ? "PI Noite" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.ProdManha ? "PI Manhã" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.SiManha ? "SI Noite" : "")
+                        </td>
+                        <td>@item.Aula</td>
+                        <td>@item.Sala</td>
+                        <td>
+                            @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA1 ? "Bloco A1" : "")
+                            @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA2 ? "Bloco A2" : "")
+                        </td>
+                        <td>@item.Horario</td>
+                    </tr>
+                }
+                else
+                {
+                    Sex_cont++;
+                    if (Sex_cont <= 1)
+                    {
+                        <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
+                    }
+                }
+            }
+        }
+    </tbody>
+</table><!--   SEXTA FEIRA  -->
+
+                            @foreach (var menu in Model)
+{
+    sex++;
+    if (sex <= 1)
+    {
+        <br />
+        <h1 class="display-4">Sexta-Feira</h1>
+    }
+}
+<table class="display" style="width: 100%">
+    <thead>
+        <tr>
+            <th scope="col">Curso</th>
+            <th scope="col">Aula</th>
+            <th scope="col">Sala</th>
+            <th scope="col">Bloco</th>
+            <th scope="col">Horario</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                if (item.IdDia == ProjetoHorariosFatec.Enums.DiaEnum.Sexta)
+                {
+                    <tr>
+                        <td id="Curso">
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsNoite ? "ADS Noite" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsTarde ? "ADS Tarde" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AgroNoite ? "Agro Noite" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AgroTarde ? "Agro Tarde" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.ProdNoite ? "PI Noite" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.ProdManha ? "PI Manhã" : "")
+                            @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.SiManha ? "SI Noite" : "")
+                        </td>
+                        <td>@item.Aula</td>
+                        <td>@item.Sala</td>
+                        <td>
+                            @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA1 ? "Bloco A1" : "")
+                            @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA2 ? "Bloco A2" : "")
+                        </td>
+                        <td>@item.Horario</td>
+                    </tr>
+                }
+                else
+                {
+                    Sab_cont++;
+                    if (Sab_cont <= 1)
+                    {
+                        <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
+                    }
+                }
+            }
+        }
+    </tbody>
+</table><!--   SÁBADO  -->

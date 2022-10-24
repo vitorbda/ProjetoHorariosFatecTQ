@@ -11,8 +11,8 @@ using ProjetoHorariosFatec.Data;
 namespace ProjetoHorariosFatec.Migrations
 {
     [DbContext(typeof(PBancoContext))]
-    [Migration("20221020185340_inital")]
-    partial class inital
+    [Migration("20221024163346_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,15 +31,14 @@ namespace ProjetoHorariosFatec.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Bloco")
+                    b.Property<string>("Aula")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Bloco")
+                        .HasColumnType("int");
 
                     b.Property<string>("Horario")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("IdAula")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -49,12 +48,12 @@ namespace ProjetoHorariosFatec.Migrations
                     b.Property<int>("IdDia")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdTurno")
-                        .HasColumnType("int");
-
                     b.Property<string>("Sala")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Semestre")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
