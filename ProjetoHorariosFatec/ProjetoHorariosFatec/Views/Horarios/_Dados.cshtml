@@ -1,12 +1,15 @@
 ﻿@model List<HorariosModel>
 
 @{
-    int seg = 0, ter = 0, quar = 0, quin = 0, sex = 0, sab = 0,
-    Q_cont = 0, S_cont = 0, T_cont = 0, Qi_cont = 0, Sex_cont = 0, Sab_cont = 0, cont = 0;
+    int seg = 0, ter = 0, quar = 0, quin = 0, sex = 0, sab = 0;
     bool Verificar = false;
 }
 
-
+@if (Model == null || Model.Count == 0){
+    <br />
+   <h1 class="display-4">Nenhum registro encontrado</h1> 
+}
+else {
 
 @foreach (var menu in Model)
 {
@@ -27,7 +30,7 @@
         </tr>
     </thead>
     <tbody>
-        @{cont = 0;
+        @{
          Verificar = false;}
         @if(Model != null && Model.Any()){
             @foreach (var item in Model)
@@ -55,14 +58,11 @@
                 </tr>
                 }
             }
-        }
-        else
-        {
-            if (S_cont <= 1)
+            if (Verificar == false)
             {
                 <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
             }
-        }
+        }       
     </tbody>
 </table><!--    SEGUNDA FEIRA  -->
 
@@ -86,12 +86,10 @@
     </thead>
     <tbody>
         @{
-            cont = 0;
             Verificar = false;
         }
         @if (Model != null && Model.Any())
         {
-            cont++;
             @foreach (var item in Model)
             {
                 if (item.IdDia == ProjetoHorariosFatec.Enums.DiaEnum.Terca)
@@ -115,12 +113,11 @@
                         </td>
                         <td>@item.Horario</td>
                     </tr>
-                } else {  
-                    if ((Verificar == false) && (cont == 4))
-                    {
-                        <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
-                    }                
-                }
+                }               
+            }
+            if (Verificar == false)
+            {
+                <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
             }
         }
     </tbody>
@@ -148,15 +145,15 @@
     <tbody>
         @{
             Verificar = false;
-            cont = 0;
         }
         @if (Model != null && Model.Any())
         {
             @foreach (var item in Model)
             {
                 if (item.IdDia == ProjetoHorariosFatec.Enums.DiaEnum.Quarta)
-                {                
-                        <tr>
+                {
+                    Verificar = true;
+                    <tr>
                             <td id="Curso">
                             @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsNoite ? "ADS Noite" : "")
                             @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsTarde ? "ADS Tarde" : "")
@@ -174,12 +171,11 @@
                         </td>
                         <td>@item.Horario</td>
                     </tr>                    
-                } else {
-                    if ((Verificar == false) && (cont == 8))
-                    {
-                        <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
-                    }
                 }
+            }
+            if (Verificar == false)
+            {
+                <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
             }
         }
     </tbody>
@@ -206,14 +202,12 @@
     </thead>
     @{
             Verificar = false;
-            cont = 0;
         }
     <tbody>
         @if (Model != null && Model.Any())
         {
             @foreach (var item in Model)
             {
-                cont++;
                 if (item.IdDia == ProjetoHorariosFatec.Enums.DiaEnum.Quinta)
                 {
                     Verificar = true;
@@ -236,13 +230,10 @@
                         <td>@item.Horario</td>
                     </tr>
                 }
-                else
-                {
-                    if ((Verificar == false) && (cont == 12))
-                    {
-                        <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
-                    }
-                }
+            }
+            if (Verificar == false)
+            {
+                <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
             }
         }
     </tbody>
@@ -270,11 +261,9 @@
     <tbody>
         @{
             Verificar = false;
-            cont = 0;
         }
         @if (Model != null && Model.Any())
         {
-            cont++;
             @foreach (var item in Model)
             {
                 if (item.IdDia == ProjetoHorariosFatec.Enums.DiaEnum.Sexta)
@@ -301,11 +290,12 @@
                 }
                 else
                 {
-                    if ((Verificar == false) && (cont == 16))
-                    {
-                        <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
-                    }
+                   
                 }
+            }
+            if (Verificar == false)
+            {
+                <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
             }
         }
     </tbody>
@@ -333,14 +323,12 @@
     <tbody>
         @{
             Verificar = false;
-            cont = 0;
         }
         @if (Model != null && Model.Any())
         {
             @foreach (var item in Model)
             {
-                cont++;
-                if (item.IdDia == ProjetoHorariosFatec.Enums.DiaEnum.Sexta)
+                if (item.IdDia == ProjetoHorariosFatec.Enums.DiaEnum.Sabado)
                 {
                     Verificar = true;
                     <tr>
@@ -362,14 +350,12 @@
                         <td>@item.Horario</td>
                     </tr>
                 }
-                else
-                {
-                    if (Verificar == false && cont == 20)
-                    {
-                        <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
-                    }
-                }
+            }
+            if (Verificar == false)
+            {
+                <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
             }
         }
     </tbody>
 </table><!--   SÁBADO  -->
+}

@@ -9,12 +9,34 @@ $(document).ready(function (){
         Semestre: ""
     }
 
+    let cliqueSemestre = false
+    let cliqueCurso = false
+
+
     $('.botaocurso').click(function () {
-        dados.IdCurso = $(this).attr('valor')
+        if (cliqueCurso == false) {
+            $('#BotaoSemestre').collapse("show")
+            cliqueCurso = true
+        } else {
+            $('#BotaoSemestre').collapse("hide")
+            cliqueCurso = false
+        }        
+        dados.IdCurso = $(this).attr('valor')        
         console.log(dados.IdCurso)
+        if (cliqueSemestre == true) {
+            $('#CarregarTabelas').collapse("hide")
+            cliqueSemestre = false
+        }
     })
 
     $('.botaosemestre').click(function () {
+        if (cliqueSemestre == false) {
+            $('#CarregarTabelas').collapse("show")
+            cliqueSemestre = true
+        } else {
+            $('#CarregarTabelas').collapse("hide")
+            cliqueSemestre = false
+        }
         dados.Semestre = $(this).attr('valor')
         $.ajax({
             type: 'GET',
@@ -22,14 +44,6 @@ $(document).ready(function (){
             success: function (result) {
                 $("#Tabela").html(result)
             }
-        });
-
-      /*  $.ajax({
-            type: 'GET',
-            url: "/Horarios/ListarHorarios/" + dados.IdCurso + '?Id=' + dados.IdCurso + '&Id2=' + dados.Semestre,
-            success: function (result) {
-                $("#Tabelas").html(result)
-            }
-        });*/
+        });     
     })
 })
