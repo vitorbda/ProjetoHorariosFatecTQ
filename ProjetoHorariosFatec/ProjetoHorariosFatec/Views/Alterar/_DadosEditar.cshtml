@@ -1,0 +1,53 @@
+﻿@using ProjetoHorariosFatec.Enums
+@model HorariosModel
+
+<form asp-controller="Alterar" asp-action="SalvarAlteracao" method="post">
+
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-3">
+        <label for="curso" class="form-label">Curso</label>
+        <select asp-for="IdCurso" class="form-control">
+            <option value="">Selecione</option>
+            <option value="@CursoEnum.AdsNoite">ADS Noite</option>
+            <option value="@CursoEnum.AdsTarde">ADS Tarde</option>
+            <option value="@CursoEnum.AgroNoite">Agronegócio Noite</option>
+            <option value="@CursoEnum.AgroTarde">Agronegócio Tarde</option>
+            <option value="@CursoEnum.ProdNoite">PI Noite</option>
+            <option value="@CursoEnum.ProdManha">PI Manhã</option>
+            <option value="@CursoEnum.SiManha">SI Manhã</option>
+        </select>
+        @Html.ValidationMessageFor(x => x.IdCurso)
+    </div>
+
+    <div class="mb-3">
+        <label for="aula" class="form-label">Aula</label>
+        <input type="text" asp-for="Aula" class="form-control" placeholder="Digite a aula">
+        @Html.ValidationMessageFor(x => x.Aula)
+    </div>
+
+    <div class="mb-3">
+        <label for="sala" class="form-label">Sala</label>
+        <input type="text" asp-for="Sala" class="form-control" placeholder="Digite a sala">
+        @Html.ValidationMessageFor(x => x.Sala)
+    </div>
+
+    <div class="mb-3">
+        <label for="bloco" class="form-label">Bloco</label>
+        <select asp-for="IdCurso" class="form-control">
+            <option value="">Selecione</option>
+            <option value="@BlocoEnum.BlocoA1">Bloco A1</option>
+            <option value="@BlocoEnum.BlocoA2">Bloco A2</option>
+        </select>
+        @Html.ValidationMessageFor(x => x.Bloco)
+    </div>
+
+    <div class="mb-3">
+        <label for="horario" class="form-label">Horario</label>
+        <input type="text" asp-for="Horario" class="form-control" placeholder="Digite o horário">
+        @Html.ValidationMessageFor(x => x.Horario)
+    </div>
+
+    <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary">Alterar</button>
+    </div>
+</form>

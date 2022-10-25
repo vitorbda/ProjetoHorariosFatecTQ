@@ -47,6 +47,7 @@ $(document).ready(function (){
             cliqueSemestre = false
         }
 
+
         function Tabela() {
             $.ajax({
                 type: 'GET',
@@ -57,28 +58,88 @@ $(document).ready(function (){
             });  
         }
              
-    })
+    })   
 
     $('#btnLogin').click(function () {
+
         $('.modal').modal("show")
-
-        //$.ajax({
-        //    url: "/Login/Login", success: function (result) {
-        //        $("#login").html(result);
-        //    }
-        //});
-
         console.log("AAAAAAAAAAA")
     })
 
+    $('.btnEditar').click(function () {
+        $('.modal').modal("show")
+        console.log("AAAAAAAAAAA")
+    })
+
+    $('.btSemestre').click(function () { // BOTÃO PARA ALTERAR REGISTROS
+        dados.Semestre = $(this).attr('valor')
+        if (cliqueSemestre == false) {
+            document.getElementById("loader").style.display = "block"
+            setTimeout(() => Carregar(), 300)
+            $('#CarregarTabelas').type = "show"
+            $('#CarregarTabelas').collapse("show")
+
+            setTimeout(() => Tabela(), 350)
+
+            cliqueSemestre = true
+        } else {
+            $('#CarregarTabelas').type = "hide"
+            $('#CarregarTabelas').collapse("hide")
+            cliqueSemestre = false
+        }
+
+
+        function Tabela() {
+            $.ajax({
+                type: 'GET',
+                url: "/Alterar/ListarHorarios/" + dados.IdCurso + '?Id=' + dados.IdCurso + '&Id2=' + dados.Semestre,
+                success: function (result) {
+                    $("#Tabela").html(result)
+                }
+            });
+        }
+
+    })   
+
+    let IdTabela = 0
+
     
-       
+
+    function teste() {
+        console.log("teste")
+    }
 })
 
-function abrir(id) {
-    $(id).modal("show")
-}
 
 function Carregar() {
     document.getElementById("loader").style.display = "none"
+}
+
+$('#btnEditar').click(function () {
+    IdTabela = $(this).attr('valor')
+    EditarValores()
+
+    function EditarValores() {
+        $.ajax({
+            type: 'GET',
+            url: "/Alterar/EditarRegistro/" + IdTabela + '?Id=' + IdTabela,
+            success: function (result) {
+                $("#Modal").html(result)
+            }
+        });
+    }
+})
+
+function teste(Id) {
+    function EditarValores() {
+        $.ajax({
+            type: 'GET',
+            url: "/Alterar/EditarRegistro/" + Id + '?Id=' + Id,
+            success: function (result) {
+                $("#Modall").html(result)
+            }
+        });
+    }
+    EditarValores()
+    $('#Modal').modal("show")
 }
