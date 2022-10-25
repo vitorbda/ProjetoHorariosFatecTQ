@@ -9,14 +9,15 @@ namespace ProjetoHorariosFatec.Controllers
     public class HorariosController : Controller
     {
         private readonly IHorariosRepositorio _horariosRepositorio;
-        public HorariosController (IHorariosRepositorio horariosRepositorio)
+        private readonly ILoginRepositorio _loginRepositorio;
+        public HorariosController (IHorariosRepositorio horariosRepositorio, ILoginRepositorio loginRepositorio)
         {
             _horariosRepositorio = horariosRepositorio;
+            _loginRepositorio = loginRepositorio;
         }
         public IActionResult Index()
-        {
-            List<HorariosModel> horarios = _horariosRepositorio.BuscarTodos();
-            return View(horarios);
+        {            
+            return View();
         }
 
         public IActionResult ListarHorarios(int Id, int Id2)

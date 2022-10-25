@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ProjetoHorariosFatec.Data;
+using ProjetoHorariosFatec.Helper;
 using ProjetoHorariosFatec.Repositorio;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,11 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddScoped<IHorariosRepositorio, HorariosRepositorio>();
+
+builder.Services.AddScoped<ILoginRepositorio, LoginRepositorio>();
+
+builder.Services.AddScoped<ISessao, Sessao>();
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

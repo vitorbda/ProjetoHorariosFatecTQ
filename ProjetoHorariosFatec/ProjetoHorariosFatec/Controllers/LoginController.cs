@@ -1,30 +1,54 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProjetoHorariosFatec.Filters;
 using ProjetoHorariosFatec.Helper;
+using ProjetoHorariosFatec.Models;
 using ProjetoHorariosFatec.Repositorio;
 
 namespace ProjetoHorariosFatec.Controllers
 {
-    [PaginaUsuarioLogado]
+    
     public class LoginController : Controller
     {
-        private readonly LoginRepositorio _loginRepositorio;
+        private readonly ILoginRepositorio _loginRepositorio;
         private readonly ISessao _sessao;
 
-        public LoginController(LoginRepositorio loginRepositorio, ISessao sessao)
+        public LoginController(ILoginRepositorio loginRepositorio, ISessao sessao)
         {
             _loginRepositorio = loginRepositorio;
-            _sessao = sessao;
+            _sessao = sessao;   
         }
 
         public IActionResult Login()
         {
-            return PartialView();
+            return PartialView("_Login");
         }
 
-        public IActionResult Entrar()
+        [HttpPost]
+        public IActionResult Entrar(LoginModel loginmodel)
         {
-            return View();
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    LoginModel usuario = _loginRepositorio.BuscarLogin(loginmodel.Login, loginmodel.Senha);
+
+                    if (usuario != null)
+                    {
+                        _sessao.CriarSessaoDoUsuario(usuario);
+                        return RedirectToAction("Index", "Horarios");
+                    }
+                    TempData["MensagemErro"] = $"Usuário e/ou senha inválido(s)";
+                    return RedirectToAction("Index", "Horarios");
+                }
+                return RedirectToAction("Index", "Horarios");
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ocorreu um erro: {erro.Message}";
+                return RedirectToAction("Index", "Horarios");
+
+            }
         }
+
     }
 }

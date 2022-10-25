@@ -58,8 +58,26 @@ $(document).ready(function (){
         }
              
     })
+
+    $('#btnLogin').click(function () {
+        $('.modal').modal("show")
+
+        //$.ajax({
+        //    url: "/Login/Login", success: function (result) {
+        //        $("#login").html(result);
+        //    }
+        //});
+
+        console.log("AAAAAAAAAAA")
+    })
+
+    
        
 })
+
+function abrir(id) {
+    $(id).modal("show")
+}
 
 function Carregar() {
     document.getElementById("loader").style.display = "none"
