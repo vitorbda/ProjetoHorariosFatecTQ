@@ -2,8 +2,12 @@
 
 @{
     int seg = 0, ter = 0, quar = 0, quin = 0, sex = 0, sab = 0,
-    Q_cont = 0, S_cont = 0, T_cont = 0, Qi_cont = 0, Sex_cont = 0, Sab_cont = 0;
+    Q_cont = 0, S_cont = 0, T_cont = 0, Qi_cont = 0, Sex_cont = 0, Sab_cont = 0, cont = 0;
+    bool Verificar = false;
 }
+
+
+
 @foreach (var menu in Model)
 {
     seg++;
@@ -23,11 +27,14 @@
         </tr>
     </thead>
     <tbody>
+        @{cont = 0;
+         Verificar = false;}
         @if(Model != null && Model.Any()){
             @foreach (var item in Model)
             {
                 if (item.IdDia == ProjetoHorariosFatec.Enums.DiaEnum.Segunda)
                 {
+                    Verificar = true;
                     <tr>
                         <td id="Curso">
                         @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsNoite ? "ADS Noite" : "")
@@ -51,7 +58,6 @@
         }
         else
         {
-            S_cont++;
             if (S_cont <= 1)
             {
                 <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
@@ -79,12 +85,18 @@
         </tr>
     </thead>
     <tbody>
+        @{
+            cont = 0;
+            Verificar = false;
+        }
         @if (Model != null && Model.Any())
         {
+            cont++;
             @foreach (var item in Model)
             {
                 if (item.IdDia == ProjetoHorariosFatec.Enums.DiaEnum.Terca)
                 {
+                    Verificar = true;
                     <tr>
                         <td id="Curso">
                             @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsNoite ? "ADS Noite" : "")
@@ -104,17 +116,12 @@
                         <td>@item.Horario</td>
                     </tr>
                 } else {  
-                    T_cont++;
-                    if (T_cont <= 1)
+                    if ((Verificar == false) && (cont == 4))
                     {
                         <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
                     }                
                 }
             }
-        }
-        else
-        {
-            <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
         }
     </tbody>
 </table><!--    TERÇA FEIRA   -->
@@ -139,6 +146,10 @@
         </tr>
     </thead>
     <tbody>
+        @{
+            Verificar = false;
+            cont = 0;
+        }
         @if (Model != null && Model.Any())
         {
             @foreach (var item in Model)
@@ -164,8 +175,7 @@
                         <td>@item.Horario</td>
                     </tr>                    
                 } else {
-                    Q_cont++;
-                    if (Q_cont <= 1)
+                    if ((Verificar == false) && (cont == 8))
                     {
                         <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
                     }
@@ -194,13 +204,19 @@
             <th scope="col">Horario</th>
         </tr>
     </thead>
+    @{
+            Verificar = false;
+            cont = 0;
+        }
     <tbody>
         @if (Model != null && Model.Any())
         {
             @foreach (var item in Model)
             {
+                cont++;
                 if (item.IdDia == ProjetoHorariosFatec.Enums.DiaEnum.Quinta)
                 {
+                    Verificar = true;
                     <tr>
                         <td id="Curso">
                             @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsNoite ? "ADS Noite" : "")
@@ -222,8 +238,7 @@
                 }
                 else
                 {
-                    Qi_cont++;
-                    if (Qi_cont <= 1)
+                    if ((Verificar == false) && (cont == 12))
                     {
                         <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
                     }
@@ -253,12 +268,18 @@
         </tr>
     </thead>
     <tbody>
+        @{
+            Verificar = false;
+            cont = 0;
+        }
         @if (Model != null && Model.Any())
         {
+            cont++;
             @foreach (var item in Model)
             {
                 if (item.IdDia == ProjetoHorariosFatec.Enums.DiaEnum.Sexta)
                 {
+                    Verificar = true;
                     <tr>
                         <td id="Curso">
                             @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsNoite ? "ADS Noite" : "")
@@ -280,8 +301,7 @@
                 }
                 else
                 {
-                    Sex_cont++;
-                    if (Sex_cont <= 1)
+                    if ((Verificar == false) && (cont == 16))
                     {
                         <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
                     }
@@ -291,13 +311,13 @@
     </tbody>
 </table><!--   SEXTA FEIRA  -->
 
-                            @foreach (var menu in Model)
+@foreach (var menu in Model)
 {
-    sex++;
-    if (sex <= 1)
+    sab++;
+    if (sab <= 1)
     {
         <br />
-        <h1 class="display-4">Sexta-Feira</h1>
+        <h1 class="display-4">Sábado</h1>
     }
 }
 <table class="display" style="width: 100%">
@@ -311,12 +331,18 @@
         </tr>
     </thead>
     <tbody>
+        @{
+            Verificar = false;
+            cont = 0;
+        }
         @if (Model != null && Model.Any())
         {
             @foreach (var item in Model)
             {
+                cont++;
                 if (item.IdDia == ProjetoHorariosFatec.Enums.DiaEnum.Sexta)
                 {
+                    Verificar = true;
                     <tr>
                         <td id="Curso">
                             @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsNoite ? "ADS Noite" : "")
@@ -338,8 +364,7 @@
                 }
                 else
                 {
-                    Sab_cont++;
-                    if (Sab_cont <= 1)
+                    if (Verificar == false && cont == 20)
                     {
                         <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
                     }

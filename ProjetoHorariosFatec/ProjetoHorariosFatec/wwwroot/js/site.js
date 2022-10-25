@@ -20,7 +20,7 @@ $(document).ready(function (){
             type: 'GET',
             url: "/Horarios/ListarHorarios/" + dados.IdCurso + '?Id=' + dados.IdCurso + '&Id2=' + dados.Semestre,
             success: function (result) {
-                $("#TabelaSegunda").html(result)
+                $("#Tabela").html(result)
             }
         });
 
