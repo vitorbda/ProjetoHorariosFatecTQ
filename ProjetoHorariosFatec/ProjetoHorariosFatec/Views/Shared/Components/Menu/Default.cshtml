@@ -1,0 +1,20 @@
+﻿@model LoginModel
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+<div class="navbar-collapse d-sm-inline-flex justify-content-between">
+    <div class="">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Horarios" asp-action="Index">
+            <img src="~/lib/img/logoFatec.png" class="img-fluid logo" alt="Responsive image">
+        </a>
+    </div>          
+
+        @if (Model == null)
+        {
+                <button type="button" class="btn btn-danger mt-1 btnsair" id="btnLogin" data-toggle="modal">Login</button>
+        } else {           
+                <a class="btn btn-danger mt-1 btnsair" asp-area="" asp-controller="Login" asp-action="Sair">Sair</a>
+        }   
+</div>

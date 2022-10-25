@@ -23,6 +23,12 @@ namespace ProjetoHorariosFatec.Controllers
             return PartialView("_Login");
         }
 
+        public IActionResult Sair()
+        {
+            _sessao.RemoverSessaoDoUsuario();
+            return RedirectToAction("Index", "Horarios");
+        }
+
         [HttpPost]
         public IActionResult Entrar(LoginModel loginmodel)
         {

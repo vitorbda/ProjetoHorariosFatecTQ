@@ -20,4 +20,8 @@
     <Folder Include="Migrations\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\lib\img\logoFatec.png" />
+  </ItemGroup>
+
 </Project>

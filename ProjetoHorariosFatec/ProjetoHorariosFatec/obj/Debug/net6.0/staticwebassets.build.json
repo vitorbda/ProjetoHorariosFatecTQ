@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kQS/6BT7a07zrRV9yT2qpuTMIEjzA3ceav9xTWS+CAg=",
+  "Hash": "62QVOzVo7WwNHUPH3K1TjifuOf6gOyV809UfL8BGwhk=",
   "Source": "ProjetoHorariosFatec",
   "BasePath": "_content/ProjetoHorariosFatec",
   "Mode": "Default",
@@ -882,6 +882,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
+    },
+    {
+      "Identity": "C:\\Users\\grx20\\Documents\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatec\\ProjetoHorariosFatec\\wwwroot\\lib\\img\\logoFatec.png",
+      "SourceId": "ProjetoHorariosFatec",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\grx20\\Documents\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatec\\ProjetoHorariosFatec\\wwwroot\\",
+      "BasePath": "_content/ProjetoHorariosFatec",
+      "RelativePath": "lib/img/logoFatec.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\img\\logoFatec.png"
     },
     {
       "Identity": "C:\\Users\\grx20\\Documents\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatec\\ProjetoHorariosFatec\\wwwroot\\lib\\jquery\\dist\\jquery.js",

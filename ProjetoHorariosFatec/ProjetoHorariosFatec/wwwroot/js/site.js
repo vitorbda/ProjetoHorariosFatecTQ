@@ -38,7 +38,7 @@ $(document).ready(function (){
             $('#CarregarTabelas').collapse("show")
 
 
-            setTimeout(() => Tabela(), 200)
+            setTimeout(() => Tabela(), 350)
 
             cliqueSemestre = true
         } else {
