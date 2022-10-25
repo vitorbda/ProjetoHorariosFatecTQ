@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetoHorariosFatec.Data;
 
@@ -10,9 +11,10 @@ using ProjetoHorariosFatec.Data;
 namespace ProjetoHorariosFatec.Migrations
 {
     [DbContext(typeof(PBancoContext))]
-    partial class PBancoContextModelSnapshot : ModelSnapshot
+    [Migration("20221025154237_login")]
+    partial class login
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

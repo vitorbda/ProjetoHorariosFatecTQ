@@ -14,6 +14,13 @@ builder.Services.AddScoped<IHorariosRepositorio, HorariosRepositorio>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+
+builder.Services.AddSession(o =>
+{
+    o.Cookie.HttpOnly = true;
+    o.Cookie.IsEssential = true;
+});
+
 var app = builder.Build();
 
 
@@ -32,6 +39,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

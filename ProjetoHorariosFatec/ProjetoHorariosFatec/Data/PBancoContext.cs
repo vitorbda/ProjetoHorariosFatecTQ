@@ -11,5 +11,6 @@ namespace ProjetoHorariosFatec.Data
         }
 
         public DbSet<HorariosModel> Horarios { get; set; }
+        public DbSet<LoginModel> Login { get; set; }
     }
 }
