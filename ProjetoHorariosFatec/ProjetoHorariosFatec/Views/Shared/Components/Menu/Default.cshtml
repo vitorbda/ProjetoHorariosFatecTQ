@@ -14,7 +14,9 @@
         @if (Model == null)
         {
                 <button type="button" class="btn btn-danger mt-1 btnsair" id="btnLogin" data-toggle="modal">Login</button>
-        } else {           
-                <a class="btn btn-danger mt-1 btnsair" asp-area="" asp-controller="Login" asp-action="Sair">Sair</a>
+        } else {
+            <div>
+                <a class="btn btn-danger mt-1 btnsair" asp-controller="Alterar" asp-action="Index">Alterar Dados</a>
+                <a class="btn btn-danger mt-1 btnsair" asp-controller="Login" asp-action="Sair">Sair</a>
+        </div>
         }   
-</div>
