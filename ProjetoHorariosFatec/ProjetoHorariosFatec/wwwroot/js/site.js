@@ -29,21 +29,38 @@ $(document).ready(function (){
         }
     })
 
-    $('.botaosemestre').click(function () {
+    $('.botaosemestre').click(function () {  
+        dados.Semestre = $(this).attr('valor')
         if (cliqueSemestre == false) {
+            document.getElementById("loader").style.display = "block"
+            setTimeout(() => Carregar(), 300)
+            $('#CarregarTabelas').type = "show"
             $('#CarregarTabelas').collapse("show")
+
+
+            setTimeout(() => Tabela(), 200)
+
             cliqueSemestre = true
         } else {
+            $('#CarregarTabelas').type = "hide"
             $('#CarregarTabelas').collapse("hide")
             cliqueSemestre = false
         }
-        dados.Semestre = $(this).attr('valor')
-        $.ajax({
-            type: 'GET',
-            url: "/Horarios/ListarHorarios/" + dados.IdCurso + '?Id=' + dados.IdCurso + '&Id2=' + dados.Semestre,
-            success: function (result) {
-                $("#Tabela").html(result)
-            }
-        });     
+
+        function Tabela() {
+            $.ajax({
+                type: 'GET',
+                url: "/Horarios/ListarHorarios/" + dados.IdCurso + '?Id=' + dados.IdCurso + '&Id2=' + dados.Semestre,
+                success: function (result) {
+                    $("#Tabela").html(result)
+                }
+            });  
+        }
+             
     })
+       
 })
+
+function Carregar() {
+    document.getElementById("loader").style.display = "none"
+}
