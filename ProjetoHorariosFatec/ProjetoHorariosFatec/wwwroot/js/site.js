@@ -4,142 +4,167 @@
 // Write your JavaScript code.
 
 $(document).ready(function (){
-    let dados = {
-        IdCurso: "",
-        Semestre: ""
-    }
-
-    let cliqueSemestre = false
-    let cliqueCurso = false
-
-
-    $('.botaocurso').click(function () {
-        if (cliqueCurso == false) {
-            $('#BotaoSemestre').collapse("show")
-            cliqueCurso = true
-        } else {
-            $('#BotaoSemestre').collapse("hide")
-            cliqueCurso = false
-        }        
-        dados.IdCurso = $(this).attr('valor')        
-        console.log(dados.IdCurso)
-        if (cliqueSemestre == true) {
-            $('#CarregarTabelas').collapse("hide")
-            cliqueSemestre = false
-        }
-    })
-
-    $('.botaosemestre').click(function () {  
-        dados.Semestre = $(this).attr('valor')
-        if (cliqueSemestre == false) {
-            document.getElementById("loader").style.display = "block"
-            setTimeout(() => Carregar(), 300)
-            $('#CarregarTabelas').type = "show"
-            $('#CarregarTabelas').collapse("show")
-
-
-            setTimeout(() => Tabela(), 350)
-
-            cliqueSemestre = true
-        } else {
-            $('#CarregarTabelas').type = "hide"
-            $('#CarregarTabelas').collapse("hide")
-            cliqueSemestre = false
-        }
-
-
-        function Tabela() {
-            $.ajax({
-                type: 'GET',
-                url: "/Horarios/ListarHorarios/" + dados.IdCurso + '?Id=' + dados.IdCurso + '&Id2=' + dados.Semestre,
-                success: function (result) {
-                    $("#Tabela").html(result)
-                }
-            });  
-        }
-             
-    })   
-
-    $('#btnLogin').click(function () {
-
-        $('.modal').modal("show")
-        console.log("AAAAAAAAAAA")
-    })
-
-    $('.btnEditar').click(function () {
-        $('.modal').modal("show")
-        console.log("AAAAAAAAAAA")
-    })
-
-    $('.btSemestre').click(function () { // BOTÃO PARA ALTERAR REGISTROS
-        dados.Semestre = $(this).attr('valor')
-        if (cliqueSemestre == false) {
-            document.getElementById("loader").style.display = "block"
-            setTimeout(() => Carregar(), 300)
-            $('#CarregarTabelas').type = "show"
-            $('#CarregarTabelas').collapse("show")
-
-            setTimeout(() => Tabela(), 350)
-
-            cliqueSemestre = true
-        } else {
-            $('#CarregarTabelas').type = "hide"
-            $('#CarregarTabelas').collapse("hide")
-            cliqueSemestre = false
-        }
-
-
-        function Tabela() {
-            $.ajax({
-                type: 'GET',
-                url: "/Alterar/ListarHorarios/" + dados.IdCurso + '?Id=' + dados.IdCurso + '&Id2=' + dados.Semestre,
-                success: function (result) {
-                    $("#Tabela").html(result)
-                }
-            });
-        }
-
-    })   
-
-    let IdTabela = 0
-
     
+})
 
-    function teste() {
-        console.log("teste")
+localStorage.IdCurso
+localStorage.Semestre
+
+localStorage.dados = {
+    IdCurso: "oi",
+    Semestre: "oi"
+}
+
+var cliqueSemestre = false
+var cliqueCurso = false
+
+
+$('.botaocurso').click(function () {
+    if (cliqueCurso == false) {
+        $('#BotaoSemestre').collapse("show")
+        cliqueCurso = true
+    } else {
+        $('#BotaoSemestre').collapse("hide")
+        cliqueCurso = false
+    }
+    localStorage.IdCurso = $(this).attr('valor')
+    console.log(localStorage.IdCurso)
+    if (cliqueSemestre == true) {
+        $('#CarregarTabelas').collapse("hide")
+        cliqueSemestre = false
     }
 })
 
+$('.botaosemestre').click(function () {
+    localStorage.Semestre = $(this).attr('valor')
+    if (cliqueSemestre == false) {
+        document.getElementById("loader").style.display = "block"
+        setTimeout(() => Carregar(), 300)
+        $('#CarregarTabelas').type = "show"
+        $('#CarregarTabelas').collapse("show")
+
+
+        setTimeout(() => Tabela(), 350)
+
+        cliqueSemestre = true
+    } else {
+        $('#CarregarTabelas').type = "hide"
+        $('#CarregarTabelas').collapse("hide")
+        cliqueSemestre = false
+    }
+
+
+    function Tabela() {
+        $.ajax({
+            type: 'GET',
+            url: "/Horarios/ListarHorarios/" + localStorage.IdCurso + '?Id=' + localStorage.IdCurso + '&Id2=' + localStorage.Semestre,
+            success: function (result) {
+                $("#Tabela").html(result)
+            }
+        });
+    }
+
+})
+
+$('#btnLogin').click(function () {
+
+    $('.modal').modal("show")
+    console.log("AAAAAAAAAAA")
+})
+
+$('.btnEditar').click(function () {
+    $('.modal').modal("show")
+    console.log("AAAAAAAAAAA")
+})
+
+$('.btSemestre').click(function () {
+    localStorage.Semestre = $(this).attr('valor')
+    if (cliqueSemestre == false) {
+        document.getElementById("loader").style.display = "block"
+        setTimeout(() => Carregar(), 300)
+        $('#CarregarTabelas').type = "show"
+        $('#CarregarTabelas').collapse("show")
+
+
+        setTimeout(() => TabelaEdit(), 350)
+
+        cliqueSemestre = true
+    } else {
+        $('#CarregarTabelas').type = "hide"
+        $('#CarregarTabelas').collapse("hide")
+        cliqueSemestre = false
+    }
+
+
+    function TabelaEdit() {
+        $.ajax({
+            type: 'GET',
+            url: "/Alterar/ListarHorarios/" + localStorage.IdCurso + '?Id=' + localStorage.IdCurso + '&Id2=' + localStorage.Semestre,
+            success: function (result) {
+                $("#Tabela").html(result)
+            }
+        });
+    }
+
+})
+
+var IdTabela = 0
+
+
+
+function teste() {
+    console.log("teste")
+}
 
 function Carregar() {
     document.getElementById("loader").style.display = "none"
 }
 
-$('#btnEditar').click(function () {
-    IdTabela = $(this).attr('valor')
-    EditarValores()
-
-    function EditarValores() {
-        $.ajax({
-            type: 'GET',
-            url: "/Alterar/EditarRegistro/" + IdTabela + '?Id=' + IdTabela,
-            success: function (result) {
-                $("#Modal").html(result)
-            }
-        });
-    }
+$('.btnEditar').click(function () {
+    IdTabela = $(this).attr('value')
+    EditarValores(IdTabela)
 })
 
-function teste(Id) {
-    function EditarValores() {
-        $.ajax({
-            type: 'GET',
-            url: "/Alterar/EditarRegistro/" + Id + '?Id=' + Id,
-            success: function (result) {
-                $("#Modall").html(result)
-            }
-        });
+
+function EditarValores(IdDado) {
+    $.ajax({
+        type: 'GET',
+        url: "/Alterar/EditarRegistro/" + IdDado + '?Id=' + IdDado,
+        success: function (result) {
+            $("#Modall").html(result)
+        }
+    });
+}
+
+function atualizarPag() {
+    alert('Para ver as alterações, atualize a tabela')
+}
+
+function atualizarTabela() {            
+    if (cliqueSemestre == false) {
+        document.getElementById("loader").style.display = "block"
+        setTimeout(() => Carregar(), 300)
+        $('#CarregarTabelas').type = "show"
+        $('#CarregarTabelas').collapse("show")
+
+
+        setTimeout(() => TabelaEdit(), 350)
+
+        cliqueSemestre = true
+    } else {
+        $('#CarregarTabelas').type = "hide"
+        $('#CarregarTabelas').collapse("hide")
+        cliqueSemestre = false
     }
-    EditarValores()
-    $('#Modal').modal("show")
+
+
+    function TabelaEdit() {
+            $.ajax({
+                type: 'GET',
+                url: "/Alterar/ListarHorarios/" + localStorage.IdCurso + '?Id=' + localStorage.IdCurso + '&Id2=' + localStorage.Semestre,
+                success: function (result) {
+                    $("#Tabela").html(result)
+                }
+            });
+        }
 }

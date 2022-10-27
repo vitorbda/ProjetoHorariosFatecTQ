@@ -41,7 +41,7 @@ namespace ProjetoHorariosFatec.Controllers
                     if (usuario != null)
                     {
                         _sessao.CriarSessaoDoUsuario(usuario);
-                        return RedirectToAction("Index", "Horarios");
+                        return RedirectToAction("Index", "Alterar");
                     }
                     TempData["MensagemErro"] = $"Usuário e/ou senha inválido(s)";
                     return RedirectToAction("Index", "Horarios");

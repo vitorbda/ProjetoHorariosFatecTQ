@@ -31,15 +31,15 @@ namespace ProjetoHorariosFatec.Controllers
         }
 
         [HttpPost]
-        public IActionResult SalvarAlteracao(HorariosModel valores)
+        public IActionResult SalvarAlteracao (HorariosModel valores)
         {
                 if (ModelState.IsValid)
                 {
                     _horariosRepositorio.Atualizar(valores);
-                    return RedirectToAction("Index");
-                }
-
-                return View("Editar", valores);
+                return NoContent();
+            }
+            TempData["Mensagem"] = $"Erro";
+            return NoContent();
         }
     }
 }

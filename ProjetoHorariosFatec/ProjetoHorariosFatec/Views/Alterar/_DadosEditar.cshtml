@@ -1,27 +1,28 @@
 ﻿@using ProjetoHorariosFatec.Enums
 @model HorariosModel
 
-<form asp-controller="Alterar" asp-action="SalvarAlteracao" method="post">
+<div id="#textbox2"></div>
 
-    <input type="hidden" asp-for="Id" />
-    <div class="mb-3">
-        <label for="curso" class="form-label">Curso</label>
-        <select asp-for="IdCurso" class="form-control">
-            <option value="">Selecione</option>
-            <option value="@CursoEnum.AdsNoite">ADS Noite</option>
-            <option value="@CursoEnum.AdsTarde">ADS Tarde</option>
-            <option value="@CursoEnum.AgroNoite">Agronegócio Noite</option>
-            <option value="@CursoEnum.AgroTarde">Agronegócio Tarde</option>
-            <option value="@CursoEnum.ProdNoite">PI Noite</option>
-            <option value="@CursoEnum.ProdManha">PI Manhã</option>
-            <option value="@CursoEnum.SiManha">SI Manhã</option>
-        </select>
-        @Html.ValidationMessageFor(x => x.IdCurso)
-    </div>
+@ViewData["Mensagem"]
 
+<form asp-area="" 
+    asp-controller="Alterar" 
+    asp-action="SalvarAlteracao" 
+    data-ajax-loading="#loading" 
+    data-ajax-mode="replace" 
+    data-ajax-update="#updateDiv"
+      data-ajax-success="alert('foi')"
+      data-ajax-failure="Failure" 
+    data-ajax="true">
+
+    <div id="updateDiv">
+    <input type="hidden" valor="@Model.Id" asp-for="Id" />
+    <input type="hidden" valor="@Model.IdCurso" asp-for="IdCurso" />
+    <input type="hidden" valor="@Model.IdDia" asp-for="IdDia" />
+    
     <div class="mb-3">
         <label for="aula" class="form-label">Aula</label>
-        <input type="text" asp-for="Aula" class="form-control" placeholder="Digite a aula">
+        <input type="text" valor="@Model.Aula" asp-for="Aula" class="form-control" placeholder="Digite a aula">
         @Html.ValidationMessageFor(x => x.Aula)
     </div>
 
@@ -33,7 +34,7 @@
 
     <div class="mb-3">
         <label for="bloco" class="form-label">Bloco</label>
-        <select asp-for="IdCurso" class="form-control">
+        <select asp-for="Bloco" class="form-control">
             <option value="">Selecione</option>
             <option value="@BlocoEnum.BlocoA1">Bloco A1</option>
             <option value="@BlocoEnum.BlocoA2">Bloco A2</option>
@@ -48,6 +49,12 @@
     </div>
 
     <div class="d-grid gap-2">
-        <button type="submit" class="btn btn-primary">Alterar</button>
+            <button type="submit" class="btn btn-primary btnAlterar" onclick="atualizarPag()" id="btnAlterar">Alterar</button>
+    </div>
     </div>
 </form>
+
+@section Scripts {       
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-ajax-unobtrusive@3.2.6/dist/jquery.unobtrusive-ajax.min.js"></script>
+}

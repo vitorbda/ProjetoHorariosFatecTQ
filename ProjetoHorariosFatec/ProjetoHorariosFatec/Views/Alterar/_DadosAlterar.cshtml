@@ -4,10 +4,6 @@
     int seg = 0, ter = 0, quar = 0, quin = 0, sex = 0, sab = 0;
     bool Verificar = false;
 }
-<script src="~/js/site.js" asp-append-version="true"></script>
-<script src="~/js/site.js"></script>
-
-<button id="btnEditar" onclick="teste(1)">AAAAAAAAAAAAAAAA</button>
 
 <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -16,14 +12,7 @@
 
                 @if (TempData["MensagemErro"] != null)
                 {
-                    @section Scripts {
-                    <script>
-                        $(document).ready(function () {
-                            $('.modal').modal("show")
-                            function teste() { console.log("AAAAAAA") }
-                        });
-                    </script>
-                }
+                
                     <div class="alert alert-danger" role="alert">
                         @TempData["MensagemErro"]
                     </div>
@@ -33,14 +22,6 @@
         </div>
     </div>
 </div>
-
-<style>
-    .btnEdit {
-        position: absolute;
-        right: 15px;
-        top: 20px;
-    }
-</style>
 
 @if (Model == null || Model.Count == 0){
     <br />
@@ -53,11 +34,7 @@ else {
     seg++;
     if (seg <= 1){
         <br />
-        <h1 class="display-4">Segunda-Feira</h1>
-         <button type="button" class="btn btn-success btnEdit" asp-controller="Alterar" asp-action="EditarRegistro" asp-route-value="1">
-             Editar
-         </button>
-        
+        <h1 class="display-4">Segunda-Feira</h1>        
     }
 }
     <table class="display table" style="width: 100%">
@@ -99,7 +76,7 @@ else {
                     <td>@item.Horario</td>
                     <td>
                         <div class="btn-group" role="group">
-                             <a class="btn btn-success btnEditar" type="button" data-toggle="modal" valor="@item.Id">Editar</a>
+                                    <a class="btn btn-success btnEditar"value="@item.Id">Editar</a>
                         </div>
                     </td>
                 </tr>
@@ -108,7 +85,7 @@ else {
             }
             if (Verificar == false)
             {
-                <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
+                <tr class="odd"><td valign="top" colspan="6">Nenhum registro encontrado</td></tr>
             }
         }       
     </tbody>
@@ -130,6 +107,7 @@ else {
             <th scope="col">Sala</th>
             <th scope="col">Bloco</th>
             <th scope="col">Horario</th>
+            <th scope="col">Editar</th>
         </tr>
     </thead>
     <tbody>
@@ -160,12 +138,17 @@ else {
                             @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA2 ? "Bloco A2" : "")
                         </td>
                         <td>@item.Horario</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-success btnEditar" data-toggle="modal" value="@item.Id">Editar</a>
+                                </div>
+                            </td>
                     </tr>
                 }               
             }
             if (Verificar == false)
             {
-                <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
+                <tr class="odd"><td valign="top" colspan="6">Nenhum registro encontrado</td></tr>
             }
         }
     </tbody>
@@ -189,6 +172,7 @@ else {
             <th scope="col">Sala</th>
             <th scope="col">Bloco</th>
             <th scope="col">Horario</th>
+            <th scope="col">Editar</th>
         </tr>
     </thead>
     <tbody>
@@ -219,12 +203,17 @@ else {
                             @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA2 ? "Bloco A2" : "")
                         </td>
                         <td>@item.Horario</td>
+                        <td>
+                        <div class="btn-group" role="group">
+                            <a class="btn btn-success btnEditar" data-toggle="modal" value="@item.Id">Editar</a>
+                        </div>
+                    </td>
                     </tr>                    
                 }
             }
             if (Verificar == false)
             {
-                <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
+                <tr class="odd"><td valign="top" colspan="6">Nenhum registro encontrado</td></tr>
             }
         }
     </tbody>
@@ -247,6 +236,7 @@ else {
             <th scope="col">Sala</th>
             <th scope="col">Bloco</th>
             <th scope="col">Horario</th>
+                <th scope="col">Editar</th>
         </tr>
     </thead>
     @{
@@ -277,12 +267,17 @@ else {
                             @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA2 ? "Bloco A2" : "")
                         </td>
                         <td>@item.Horario</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-success btnEditar" data-toggle="modal" value="@item.Id">Editar</a>
+                                </div>
+                            </td>
                     </tr>
                 }
             }
             if (Verificar == false)
             {
-                <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
+                <tr class="odd"><td valign="top" colspan="6">Nenhum registro encontrado</td></tr>
             }
         }
     </tbody>
@@ -305,6 +300,7 @@ else {
             <th scope="col">Sala</th>
             <th scope="col">Bloco</th>
             <th scope="col">Horario</th>
+                <th scope="col">Editar</th>
         </tr>
     </thead>
     <tbody>
@@ -335,6 +331,11 @@ else {
                             @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA2 ? "Bloco A2" : "")
                         </td>
                         <td>@item.Horario</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-success btnEditar" data-toggle="modal" value="@item.Id">Editar</a>
+                                </div>
+                            </td>
                     </tr>
                 }
                 else
@@ -344,7 +345,7 @@ else {
             }
             if (Verificar == false)
             {
-                <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
+                <tr class="odd"><td valign="top" colspan="6">Nenhum registro encontrado</td></tr>
             }
         }
     </tbody>
@@ -367,6 +368,7 @@ else {
             <th scope="col">Sala</th>
             <th scope="col">Bloco</th>
             <th scope="col">Horario</th>
+                <th scope="col">Editar</th>
         </tr>
     </thead>
     <tbody>
@@ -397,12 +399,17 @@ else {
                             @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA2 ? "Bloco A2" : "")
                         </td>
                         <td>@item.Horario</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a class="btn btn-success btnEditar" data-toggle="modal" value="@item.Id">Editar</a>
+                                </div>
+                            </td>
                     </tr>
                 }
             }
             if (Verificar == false)
             {
-                <tr class="odd"><td valign="top" colspan="5">Nenhum registro encontrado</td></tr>
+                <tr class="odd"><td valign="top" colspan="6">Nenhum registro encontrado</td></tr>
             }
         }
     </tbody>
