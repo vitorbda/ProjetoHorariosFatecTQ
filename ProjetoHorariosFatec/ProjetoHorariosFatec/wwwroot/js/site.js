@@ -3,17 +3,9 @@
 
 // Write your JavaScript code.
 
-$(document).ready(function (){
-    
-})
-
 localStorage.IdCurso
 localStorage.Semestre
-
-localStorage.dados = {
-    IdCurso: "oi",
-    Semestre: "oi"
-}
+var IdTabela = 0
 
 var cliqueSemestre = false
 var cliqueCurso = false
@@ -69,12 +61,10 @@ $('.botaosemestre').click(function () {
 $('#btnLogin').click(function () {
 
     $('.modal').modal("show")
-    console.log("AAAAAAAAAAA")
 })
 
 $('.btnEditar').click(function () {
     $('.modal').modal("show")
-    console.log("AAAAAAAAAAA")
 })
 
 $('.btSemestre').click(function () {
@@ -108,7 +98,7 @@ $('.btSemestre').click(function () {
 
 })
 
-var IdTabela = 0
+
 
 
 
@@ -140,7 +130,10 @@ function atualizarPag() {
     alert('Para ver as alterações, atualize a tabela')
 }
 
-function atualizarTabela() {            
+//Função do botão de atualizar
+function atualizarTabela(Id) { 
+    var button = document.getElementById(Id)
+    button.disabled = true
     if (cliqueSemestre == false) {
         document.getElementById("loader").style.display = "block"
         setTimeout(() => Carregar(), 300)
@@ -149,7 +142,7 @@ function atualizarTabela() {
 
 
         setTimeout(() => TabelaEdit(), 350)
-
+        setTimeout(() => button.disabled = false, 350)
         cliqueSemestre = true
     } else {
         $('#CarregarTabelas').type = "hide"
@@ -160,11 +153,52 @@ function atualizarTabela() {
 
     function TabelaEdit() {
             $.ajax({
-                type: 'GET',
+                type: 'POST',
                 url: "/Alterar/ListarHorarios/" + localStorage.IdCurso + '?Id=' + localStorage.IdCurso + '&Id2=' + localStorage.Semestre,
                 success: function (result) {
                     $("#Tabela").html(result)
                 }
             });
-        }
+    }
 }
+
+$('.btAtivo').click(function () {
+    let ativo = $(this).attr('active')
+    let IdHorario = $(this).attr('valor')
+    
+    if (ativo == 0) {
+        ativo = 1
+        $(this).attr('active', 1)
+    } else {
+        ativo = 0
+        $(this).attr('active', 0)
+    }
+
+    $.ajax({
+        type: 'POST',
+        url: "/Alterar/EditarAtivo/" + IdHorario + '?Id1=' + IdHorario + '&Id2=' + ativo,
+        success: function () {
+            console.log("Sucesso Id: " + IdHorario + "Ativo: " + ativo)
+        }
+    });
+})
+
+//function ativo(Id) {
+//    let ativo     
+//    let botaoAtivo = document.getElementsByClassName(Id)
+//    let IdHorario = botaoAtivo.value
+//    if (botaoAtivo.checked) {
+//         ativo = 1
+//    }
+//     else {
+//        ativo = 0
+//    }
+//
+//    $.ajax({
+//        type: 'POST',
+//        url: "/Alterar/EditarAtivo/" + IdHorario + '?Id1=' + IdHorario + '&Id2=' + ativo,
+//        success: function () {
+//            console.log("Sucesso")
+//        }
+//    });
+//}

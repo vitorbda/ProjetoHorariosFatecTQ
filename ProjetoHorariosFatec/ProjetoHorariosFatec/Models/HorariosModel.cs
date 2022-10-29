@@ -12,5 +12,7 @@ namespace ProjetoHorariosFatec.Models
         public BlocoEnum Bloco { get; set; }
         public SemestreEnum Semestre { get; set; }
         public string Horario { get; set; }
+        public int Ativo { get; set; }
+        public DateTime? AlterDate { get; set; }
     }
 }

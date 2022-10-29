@@ -8,5 +8,6 @@ namespace ProjetoHorariosFatec.Repositorio
         List<HorariosModel> BuscarTodos();
         HorariosModel Atualizar(HorariosModel horario);
         List<HorariosModel> ListarPorIds(int id, int id2);
+        List<HorariosModel> ListarIdsAtivos(int id, int id2);
     }
 }

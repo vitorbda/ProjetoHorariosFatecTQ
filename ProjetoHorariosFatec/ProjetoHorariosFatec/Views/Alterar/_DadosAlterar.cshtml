@@ -11,8 +11,7 @@
             <div class="modal-body" id="">
 
                 @if (TempData["MensagemErro"] != null)
-                {
-                
+                {                
                     <div class="alert alert-danger" role="alert">
                         @TempData["MensagemErro"]
                     </div>
@@ -45,6 +44,7 @@ else {
             <th scope="col">Sala</th>
             <th scope="col">Bloco</th>
             <th scope="col">Horario</th>
+            <th scope="col">Ativo?</th>
             <th scope="col">Editar</th>
         </tr>
     </thead>
@@ -56,8 +56,10 @@ else {
             {
                 if (item.IdDia == ProjetoHorariosFatec.Enums.DiaEnum.Segunda)
                 {
+                    
                     Verificar = true;
                     <tr>
+                        <form>
                         <td id="Curso">
                         @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsNoite ? "ADS Noite" : "")
                         @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsTarde ? "ADS Tarde" : "")
@@ -75,17 +77,30 @@ else {
                     </td>
                     <td>@item.Horario</td>
                     <td>
-                        <div class="btn-group" role="group">
-                                    <a class="btn btn-success btnEditar"value="@item.Id">Editar</a>
+                        <div class="form-check">
+                            <label>
+                                @if(item.Ativo == 1)
+                                {
+                                            <input class="form-check-input btAtivo" type="checkbox" active="0" valor="@item.Id" active="@item.Ativo" checked>
+                                } else {
+                                            <input class="form-check-input btAtivo" type="checkbox" active="@item.Ativo" valor="@item.Id" active="@item.Ativo">
+                                }                                
+                            </label>                            
                         </div>
                     </td>
+                    <td>
+                        <div class="btn-group" role="group">
+                               <a class="btn btn-success btnEditar" value="@item.Id">Editar</a>
+                        </div>
+                    </td>
+                    </form>
                 </tr>
                  
                 }
             }
             if (Verificar == false)
             {
-                <tr class="odd"><td valign="top" colspan="6">Nenhum registro encontrado</td></tr>
+                <tr class="odd"><td valign="top" colspan="7">Nenhum registro encontrado</td></tr>
             }
         }       
     </tbody>
@@ -107,6 +122,7 @@ else {
             <th scope="col">Sala</th>
             <th scope="col">Bloco</th>
             <th scope="col">Horario</th>
+                <th scope="col">Ativo?</th>
             <th scope="col">Editar</th>
         </tr>
     </thead>
@@ -138,6 +154,18 @@ else {
                             @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA2 ? "Bloco A2" : "")
                         </td>
                         <td>@item.Horario</td>
+                        <td>
+                        <div class="form-check">
+                            <label>
+                                @if(item.Ativo == 1)
+                                {
+                                            <input class="form-check-input btAtivo" type="checkbox" valor="@item.Id" active="@item.Ativo" checked>
+                                } else {
+                                            <input class="form-check-input btAtivo" type="checkbox" valor="@item.Id" active="@item.Ativo">
+                                }                                
+                            </label>                            
+                        </div>
+                    </td>
                             <td>
                                 <div class="btn-group" role="group">
                                     <a class="btn btn-success btnEditar" data-toggle="modal" value="@item.Id">Editar</a>
@@ -148,7 +176,7 @@ else {
             }
             if (Verificar == false)
             {
-                <tr class="odd"><td valign="top" colspan="6">Nenhum registro encontrado</td></tr>
+                <tr class="odd"><td valign="top" colspan="7">Nenhum registro encontrado</td></tr>
             }
         }
     </tbody>
@@ -172,6 +200,7 @@ else {
             <th scope="col">Sala</th>
             <th scope="col">Bloco</th>
             <th scope="col">Horario</th>
+            <th scope="col">Ativo?</th>
             <th scope="col">Editar</th>
         </tr>
     </thead>
@@ -204,6 +233,18 @@ else {
                         </td>
                         <td>@item.Horario</td>
                         <td>
+                        <div class="form-check">
+                            <label>
+                                @if(item.Ativo == 1)
+                                {
+                                            <input class="form-check-input btAtivo" type="checkbox" valor="@item.Id" active="@item.Ativo" checked>
+                                } else {
+                                            <input class="form-check-input btAtivo" type="checkbox" valor="@item.Id" active="@item.Ativo">
+                                }                                
+                            </label>                            
+                        </div>
+                    </td>
+                        <td>
                         <div class="btn-group" role="group">
                             <a class="btn btn-success btnEditar" data-toggle="modal" value="@item.Id">Editar</a>
                         </div>
@@ -213,7 +254,7 @@ else {
             }
             if (Verificar == false)
             {
-                <tr class="odd"><td valign="top" colspan="6">Nenhum registro encontrado</td></tr>
+                <tr class="odd"><td valign="top" colspan="7">Nenhum registro encontrado</td></tr>
             }
         }
     </tbody>
@@ -236,7 +277,8 @@ else {
             <th scope="col">Sala</th>
             <th scope="col">Bloco</th>
             <th scope="col">Horario</th>
-                <th scope="col">Editar</th>
+            <th scope="col">Ativo?</th>
+            <th scope="col">Editar</th>
         </tr>
     </thead>
     @{
@@ -267,6 +309,18 @@ else {
                             @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA2 ? "Bloco A2" : "")
                         </td>
                         <td>@item.Horario</td>
+                        <td>
+                        <div class="form-check">
+                            <label>
+                                @if(item.Ativo == 1)
+                                {
+                                            <input class="form-check-input btAtivo" type="checkbox" valor="@item.Id" active="@item.Ativo" checked>
+                                } else {
+                                            <input class="form-check-input btAtivo" type="checkbox" valor="@item.Id" active="@item.Ativo">
+                                }                                
+                            </label>                            
+                        </div>
+                        </td>
                             <td>
                                 <div class="btn-group" role="group">
                                     <a class="btn btn-success btnEditar" data-toggle="modal" value="@item.Id">Editar</a>
@@ -277,7 +331,7 @@ else {
             }
             if (Verificar == false)
             {
-                <tr class="odd"><td valign="top" colspan="6">Nenhum registro encontrado</td></tr>
+                <tr class="odd"><td valign="top" colspan="7">Nenhum registro encontrado</td></tr>
             }
         }
     </tbody>
@@ -300,7 +354,8 @@ else {
             <th scope="col">Sala</th>
             <th scope="col">Bloco</th>
             <th scope="col">Horario</th>
-                <th scope="col">Editar</th>
+            <th scope="col">Ativo?</th>
+            <th scope="col">Editar</th>
         </tr>
     </thead>
     <tbody>
@@ -331,6 +386,18 @@ else {
                             @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA2 ? "Bloco A2" : "")
                         </td>
                         <td>@item.Horario</td>
+                        <td>
+                        <div class="form-check">
+                            <label>
+                                @if(item.Ativo == 1)
+                                {
+                                            <input class="form-check-input btAtivo" type="checkbox" valor="@item.Id" active="@item.Ativo" checked>
+                                } else {
+                                            <input class="form-check-input btAtivo" type="checkbox" valor="@item.Id" active="@item.Ativo">
+                                }                                
+                            </label>                            
+                        </div>
+                        </td>
                             <td>
                                 <div class="btn-group" role="group">
                                     <a class="btn btn-success btnEditar" data-toggle="modal" value="@item.Id">Editar</a>
@@ -345,7 +412,7 @@ else {
             }
             if (Verificar == false)
             {
-                <tr class="odd"><td valign="top" colspan="6">Nenhum registro encontrado</td></tr>
+                <tr class="odd"><td valign="top" colspan="7">Nenhum registro encontrado</td></tr>
             }
         }
     </tbody>
@@ -368,7 +435,8 @@ else {
             <th scope="col">Sala</th>
             <th scope="col">Bloco</th>
             <th scope="col">Horario</th>
-                <th scope="col">Editar</th>
+            <th scope="col">Ativo?</th>
+            <th scope="col">Editar</th>
         </tr>
     </thead>
     <tbody>
@@ -399,6 +467,18 @@ else {
                             @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA2 ? "Bloco A2" : "")
                         </td>
                         <td>@item.Horario</td>
+                        <td>
+                        <div class="form-check">
+                            <label>
+                                @if(item.Ativo == 1)
+                                {
+                                            <input class="form-check-input btAtivo" type="checkbox" valor="@item.Id" active="@item.Ativo" checked>
+                                } else {
+                                            <input class="form-check-input btAtivo" type="checkbox" valor="@item.Id" active="@item.Ativo">
+                                }                                
+                            </label>                            
+                        </div>
+                        </td>
                             <td>
                                 <div class="btn-group" role="group">
                                     <a class="btn btn-success btnEditar" data-toggle="modal" value="@item.Id">Editar</a>
@@ -409,7 +489,7 @@ else {
             }
             if (Verificar == false)
             {
-                <tr class="odd"><td valign="top" colspan="6">Nenhum registro encontrado</td></tr>
+                <tr class="odd"><td valign="top" colspan="7">Nenhum registro encontrado</td></tr>
             }
         }
     </tbody>

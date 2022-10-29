@@ -41,5 +41,25 @@ namespace ProjetoHorariosFatec.Controllers
             TempData["Mensagem"] = $"Erro";
             return NoContent();
         }
+
+        [HttpPost]
+        public IActionResult EditarAtivo (int Id1, int Id2)
+        {
+            AtivoModel EstaAtivo = new AtivoModel()
+            {
+                Id = Id1,
+                Ativo = Id2
+            };
+            HorariosModel horario = null;
+
+            horario = new HorariosModel()
+            {
+                Id = EstaAtivo.Id,
+                Ativo = EstaAtivo.Ativo
+            };
+            _horariosRepositorio.Atualizar(horario);
+
+            return NoContent();
+        }
     }
 }
