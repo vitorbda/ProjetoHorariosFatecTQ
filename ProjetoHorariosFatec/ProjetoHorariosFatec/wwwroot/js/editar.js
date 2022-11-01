@@ -1,4 +1,3 @@
-
 textBox("aula","sala","horario")
 
 function textBox(Id, Id2, Id3) {

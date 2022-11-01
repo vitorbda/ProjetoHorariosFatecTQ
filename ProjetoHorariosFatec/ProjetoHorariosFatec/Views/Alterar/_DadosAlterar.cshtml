@@ -59,7 +59,6 @@ else {
                     
                     Verificar = true;
                     <tr>
-                        <form>
                         <td id="Curso">
                         @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsNoite ? "ADS Noite" : "")
                         @(item.IdCurso == ProjetoHorariosFatec.Enums.CursoEnum.AdsTarde ? "ADS Tarde" : "")
@@ -76,24 +75,23 @@ else {
                         @(item.Bloco == ProjetoHorariosFatec.Enums.BlocoEnum.BlocoA2 ? "Bloco A2" : "")
                     </td>
                     <td>@item.Horario</td>
-                    <td>
+                   <td>
                         <div class="form-check">
                             <label>
                                 @if(item.Ativo == 1)
                                 {
-                                            <input class="form-check-input btAtivo" type="checkbox" active="0" valor="@item.Id" active="@item.Ativo" checked>
+                                            <input class="form-check-input btAtivo" type="checkbox" valor="@item.Id" active="@item.Ativo" checked>
                                 } else {
-                                            <input class="form-check-input btAtivo" type="checkbox" active="@item.Ativo" valor="@item.Id" active="@item.Ativo">
+                                            <input class="form-check-input btAtivo" type="checkbox" valor="@item.Id" active="@item.Ativo">
                                 }                                
                             </label>                            
                         </div>
-                    </td>
+                        </td>
                     <td>
                         <div class="btn-group" role="group">
                                <a class="btn btn-success btnEditar" value="@item.Id">Editar</a>
                         </div>
                     </td>
-                    </form>
                 </tr>
                  
                 }
@@ -165,7 +163,7 @@ else {
                                 }                                
                             </label>                            
                         </div>
-                    </td>
+                        </td>
                             <td>
                                 <div class="btn-group" role="group">
                                     <a class="btn btn-success btnEditar" data-toggle="modal" value="@item.Id">Editar</a>
@@ -496,4 +494,4 @@ else {
 </table><!--   SÁBADO  -->
 }
 
-<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/alterar.js"></script>
