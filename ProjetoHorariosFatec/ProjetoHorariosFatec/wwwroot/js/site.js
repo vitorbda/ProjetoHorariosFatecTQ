@@ -184,7 +184,7 @@ $('.btAtivo').click(function () {
 })
 
 //function ativo(Id) {
-//    let ativo     
+//    let ativo
 //    let botaoAtivo = document.getElementsByClassName(Id)
 //    let IdHorario = botaoAtivo.value
 //    if (botaoAtivo.checked) {

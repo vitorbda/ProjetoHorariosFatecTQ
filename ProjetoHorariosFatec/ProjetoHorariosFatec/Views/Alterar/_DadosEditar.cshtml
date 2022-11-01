@@ -1,6 +1,6 @@
 ﻿@using ProjetoHorariosFatec.Enums
 @model HorariosModel
-
+<script src="~/js/editar.js"></script>
 <div id="#textbox2"></div>
 
 @ViewData["Mensagem"]
@@ -11,9 +11,10 @@
     data-ajax-loading="#loading" 
     data-ajax-mode="replace" 
     data-ajax-update="#updateDiv"
-      data-ajax-success="alert('foi')"
-      data-ajax-failure="Failure" 
-    data-ajax="true">
+    data-ajax-success="alert('foi')"
+    data-ajax-failure="Failure" 
+    data-ajax="true"
+    id="formulario">
 
     <div id="updateDiv">
     <input type="hidden" valor="@Model.Id" asp-for="Id" />
@@ -22,20 +23,19 @@
     
     <div class="mb-3">
         <label for="aula" class="form-label">Aula</label>
-        <input type="text" valor="@Model.Aula" asp-for="Aula" class="form-control" placeholder="Digite a aula">
+        <input type="text" valor="@Model.Aula" asp-for="Aula" class="form-control obrig" id="aula" placeholder="Digite a aula">
         @Html.ValidationMessageFor(x => x.Aula)
     </div>
 
     <div class="mb-3">
         <label for="sala" class="form-label">Sala</label>
-        <input type="text" asp-for="Sala" class="form-control" placeholder="Digite a sala">
+        <input type="text" asp-for="Sala" class="form-control obrig" id="sala" placeholder="Digite a sala">
         @Html.ValidationMessageFor(x => x.Sala)
     </div>
 
     <div class="mb-3">
         <label for="bloco" class="form-label">Bloco</label>
-        <select asp-for="Bloco" class="form-control">
-            <option value="">Selecione</option>
+        <select asp-for="Bloco" class="form-control obrig">
             <option value="@BlocoEnum.BlocoA1">Bloco A1</option>
             <option value="@BlocoEnum.BlocoA2">Bloco A2</option>
         </select>
@@ -44,7 +44,7 @@
 
     <div class="mb-3">
         <label for="horario" class="form-label">Horario</label>
-        <input type="text" asp-for="Horario" class="form-control" placeholder="Digite o horário">
+        <input type="text" asp-for="Horario" class="form-control obrig" id="horario" placeholder="Digite o horário">
         @Html.ValidationMessageFor(x => x.Horario)
     </div>
 

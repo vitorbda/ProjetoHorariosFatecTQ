@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nk4THi1ak6VExMOaha4RUttY3WxZCCkTgHaNLEovdm4=",
+  "Hash": "oJWbIk1IFCzvAUVFFqrwWGxfsRXILHHimvHCq1WVMWo=",
   "Source": "ProjetoHorariosFatec",
   "BasePath": "_content/ProjetoHorariosFatec",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\grx20\\Documents\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatec\\ProjetoHorariosFatec\\wwwroot\\js\\editar.js",
+      "SourceId": "ProjetoHorariosFatec",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\grx20\\Documents\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatec\\ProjetoHorariosFatec\\wwwroot\\",
+      "BasePath": "_content/ProjetoHorariosFatec",
+      "RelativePath": "js/editar.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\editar.js"
     },
     {
       "Identity": "C:\\Users\\grx20\\Documents\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatec\\ProjetoHorariosFatec\\wwwroot\\js\\site.js",
