@@ -58,9 +58,7 @@ $('#btnLogin').click(function () {
     $('.modal').modal("show")
 })
 
-$('.btnEditar').click(function () {
-    $('.modal').modal("show")
-})
+
 
 $('.btSemestre').click(function () {
     localStorage.Semestre = $(this).attr('valor')
@@ -97,47 +95,6 @@ function Carregar() {
     document.getElementById("loader").style.display = "none"
 }
 
-$('.btnEditar').click(function () {
-    IdTabela = $(this).attr('value')
-    EditarValores(IdTabela)
-})
-
-
-function EditarValores(IdDado) {
-    $.ajax({
-        type: 'GET',
-        url: "/Alterar/EditarRegistro/" + IdDado + '?Id=' + IdDado,
-        success: function (result) {
-            $("#Modall").html(result)
-        }
-    });
-}
-
-function atualizarPag() {
-    alert('Para ver as alterações, atualize a tabela')
-}
-
-//Função do botão de atualizar
 
 
 
-
-//function ativo(Id) {
-//    let ativo
-//    let botaoAtivo = document.getElementsByClassName(Id)
-//    let IdHorario = botaoAtivo.value
-//    if (botaoAtivo.checked) {
-//         ativo = 1
-//    }
-//     else {
-//        ativo = 0
-//    }
-//
-//    $.ajax({
-//        type: 'POST',
-//        url: "/Alterar/EditarAtivo/" + IdHorario + '?Id1=' + IdHorario + '&Id2=' + ativo,
-//        success: function () {
-//            console.log("Sucesso")
-//        }
-//    });
-//}
