@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "gNsJwgR6EXuzbaIGLGcfLQm2fqsQw/0mcKR0Xp3nHts=",
+  "Hash": "/vR+7R2SDFgEVsWntPKXZZ0D7CzuCbDx+r6xchZGje4=",
   "Source": "ProjetoHorariosFatec",
   "BasePath": "_content/ProjetoHorariosFatec",
   "Mode": "Default",
@@ -899,6 +899,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
+    },
+    {
+      "Identity": "C:\\Users\\grx20\\Documents\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatec\\ProjetoHorariosFatec\\wwwroot\\lib\\img\\favicon.png",
+      "SourceId": "ProjetoHorariosFatec",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\grx20\\Documents\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatec\\ProjetoHorariosFatec\\wwwroot\\",
+      "BasePath": "_content/ProjetoHorariosFatec",
+      "RelativePath": "lib/img/favicon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\img\\favicon.png"
     },
     {
       "Identity": "C:\\Users\\grx20\\Documents\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatecTQ\\ProjetoHorariosFatec\\ProjetoHorariosFatec\\wwwroot\\lib\\img\\icons8-edit-60.png",

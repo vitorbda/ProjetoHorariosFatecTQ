@@ -5,6 +5,10 @@ var IdTabela = 0
 var cliqueSemestre = false
 var cliqueCurso = false
 
+$('document').ready(() => {
+    
+})
+
 
 $('.botaocurso').click(function () {
     if (cliqueCurso == false) {
@@ -54,8 +58,11 @@ $('.botaosemestre').click(function () {
 })
 
 $('#btnLogin').click(function () {
-
     $('.modal').modal("show")
+    if ($('#login').val() == '' || $('#senha').val() == '')
+    {
+        $('#logar').attr("disabled", true);
+    }
 })
 
 
@@ -93,6 +100,30 @@ $('.btSemestre').click(function () {
 
 function Carregar() {
     document.getElementById("loader").style.display = "none"
+}
+
+textBox("login","senha")
+function textBox(Id, Id2) {
+    Id = document.getElementById(Id)
+    Id2 = document.getElementById(Id2)
+    var botao = document.getElementById("logar")
+
+    habilitar(Id)
+    habilitar(Id2)
+
+    function habilitar(input) {
+        input.addEventListener('input', () => {
+            if (Id.value == null    ||
+                Id.value == ''      ||
+                Id2.value == null   ||
+                Id2.value == ''     )
+            {
+                botao.disabled = true
+            } else {
+                botao.disabled = false
+            }
+        })
+    }
 }
 
 

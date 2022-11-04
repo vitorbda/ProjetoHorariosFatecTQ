@@ -58,9 +58,7 @@ $('#btnLogin').click(function () {
     $('.modal').modal("show")
 })
 
-$('.btnEditar').click(function () {
-    $('.modal').modal("show")
-})
+
 
 $('.btSemestre').click(function () {
     localStorage.Semestre = $(this).attr('valor')
@@ -97,47 +95,30 @@ function Carregar() {
     document.getElementById("loader").style.display = "none"
 }
 
-$('.btnEditar').click(function () {
-    IdTabela = $(this).attr('value')
-    EditarValores(IdTabela)
-})
+textBox("login","senha")
+function textBox(Id, Id2) {
+    Id = document.getElementById(Id)
+    Id2 = document.getElementById(Id2)
+    var botao = document.getElementById("logar")
 
+    habilitar(Id)
+    habilitar(Id2)
 
-function EditarValores(IdDado) {
-    $.ajax({
-        type: 'GET',
-        url: "/Alterar/EditarRegistro/" + IdDado + '?Id=' + IdDado,
-        success: function (result) {
-            $("#Modall").html(result)
-        }
-    });
+    function habilitar(input) {
+        input.addEventListener('input', () => {
+            if (Id.value == null    ||
+                Id.value == ''      ||
+                Id2.value == null   ||
+                Id2.value == ''     )
+            {
+                botao.disabled = true
+            } else {
+                botao.disabled = false
+            }
+        })
+    }
 }
 
-function atualizarPag() {
-    alert('Para ver as alterações, atualize a tabela')
-}
-
-//Função do botão de atualizar
 
 
 
-
-//function ativo(Id) {
-//    let ativo
-//    let botaoAtivo = document.getElementsByClassName(Id)
-//    let IdHorario = botaoAtivo.value
-//    if (botaoAtivo.checked) {
-//         ativo = 1
-//    }
-//     else {
-//        ativo = 0
-//    }
-//
-//    $.ajax({
-//        type: 'POST',
-//        url: "/Alterar/EditarAtivo/" + IdHorario + '?Id1=' + IdHorario + '&Id2=' + ativo,
-//        success: function () {
-//            console.log("Sucesso")
-//        }
-//    });
-//}

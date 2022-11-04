@@ -43,3 +43,24 @@ function atualizarTabela(Id) {
         });
     }
 }
+
+$('.btnEditar').click(function () {
+    console.log("oi")
+    $('.modal').modal("show")
+    IdTabela = $(this).attr('value')
+    EditarValores(IdTabela)
+})
+
+function EditarValores(IdDado) {
+    $.ajax({
+        type: 'GET',
+        url: "/Alterar/EditarRegistro/" + IdDado + '?Id=' + IdDado,
+        success: function (result) {
+            $("#Modall").html(result)
+        }
+    });
+}
+
+function atualizarPag() {
+    alert('Para ver as alterações, atualize a tabela')
+}
