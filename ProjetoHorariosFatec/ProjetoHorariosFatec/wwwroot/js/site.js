@@ -5,10 +5,6 @@ var IdTabela = 0
 var cliqueSemestre = false
 var cliqueCurso = false
 
-$('document').ready(() => {
-    
-})
-
 
 $('.botaocurso').click(function () {
     if (cliqueCurso == false) {
@@ -29,8 +25,7 @@ $('.botaocurso').click(function () {
 $('.botaosemestre').click(function () {
     localStorage.Semestre = $(this).attr('valor')
     if (cliqueSemestre == false) {
-        document.getElementById("loader").style.display = "block"
-        setTimeout(() => Carregar(), 300)
+        ChamarCarregar()
         $('#CarregarTabelas').type = "show"
         $('#CarregarTabelas').collapse("show")
 
@@ -51,6 +46,7 @@ $('.botaosemestre').click(function () {
             url: "/Horarios/ListarHorarios/" + localStorage.IdCurso + '?Id=' + localStorage.IdCurso + '&Id2=' + localStorage.Semestre,
             success: function (result) {
                 $("#Tabela").html(result)
+                EsconderCarregar()
             }
         });
     }
@@ -58,20 +54,17 @@ $('.botaosemestre').click(function () {
 })
 
 $('#btnLogin').click(function () {
-    $('.modal').modal("show")
+    $('#loginModal').modal("show")
     if ($('#login').val() == '' || $('#senha').val() == '')
     {
         $('#logar').attr("disabled", true);
     }
 })
 
-
-
 $('.btSemestre').click(function () {
     localStorage.Semestre = $(this).attr('valor')
     if (cliqueSemestre == false) {
-        document.getElementById("loader").style.display = "block"
-        setTimeout(() => Carregar(), 300)
+        ChamarCarregar()
         $('#CarregarTabelas').type = "show"
         $('#CarregarTabelas').collapse("show")
 
@@ -92,40 +85,18 @@ $('.btSemestre').click(function () {
             url: "/Alterar/ListarHorarios/" + localStorage.IdCurso + '?Id=' + localStorage.IdCurso + '&Id2=' + localStorage.Semestre,
             success: function (result) {
                 $("#Tabela").html(result)
+                EsconderCarregar()
             }
         });
     }
 
 })
 
-function Carregar() {
-    document.getElementById("loader").style.display = "none"
+
+function ChamarCarregar() {
+    $('#carregar').modal("show")
 }
 
-textBox("login","senha")
-function textBox(Id, Id2) {
-    Id = document.getElementById(Id)
-    Id2 = document.getElementById(Id2)
-    var botao = document.getElementById("logar")
-
-    habilitar(Id)
-    habilitar(Id2)
-
-    function habilitar(input) {
-        input.addEventListener('input', () => {
-            if (Id.value == null    ||
-                Id.value == ''      ||
-                Id2.value == null   ||
-                Id2.value == ''     )
-            {
-                botao.disabled = true
-            } else {
-                botao.disabled = false
-            }
-        })
-    }
+function EsconderCarregar() {
+    $('#carregar').modal("hide")
 }
-
-
-
-

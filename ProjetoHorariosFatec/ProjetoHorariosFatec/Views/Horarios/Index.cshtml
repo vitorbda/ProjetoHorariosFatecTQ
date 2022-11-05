@@ -4,7 +4,7 @@
 }
   
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body" id="">
@@ -14,7 +14,7 @@
                     @section Scripts {
                         <script>
                                 $(document).ready(function () {
-                                    $('.modal').modal("show")
+                                    $('#loginModal').modal("show")
                                 });
                         </script>
                         }
@@ -100,9 +100,25 @@
             </a>
         </div>
         <div class="text-center mt-4 w-auto card collapse" id="CarregarTabelas">
-            <div class="loader" id="loader"></div>
             <br />
             <div id="Tabela"></div>
         </div>
     </div>
 </div>
+
+<div class="modal" role="dialog" id="carregar">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="loader" id="loader"></div>
+                    <div class="col">
+                        <div class="col">Carregando</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/login.js"></script>

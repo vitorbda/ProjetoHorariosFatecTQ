@@ -20,18 +20,12 @@ $('.btAtivo').click(function () {
     });
 })
 
-function atualizarTabela(Id) {
-    var button = document.getElementById(Id)
-    button.disabled = true
-
-        document.getElementById("loader").style.display = "block"
-        setTimeout(() => Carregar(), 300)
-
-        setTimeout(() => TabelaEdit(), 350)
-        setTimeout(() => button.disabled = false, 350)
-
-
-
+$('#btAtualizar').click(() => {
+    $(this).attr("disabled", true)
+    ChamarCarregar()
+    TabelaEdit()
+    $(this).attr("disabled", false)
+    EsconderCarregar()
 
     function TabelaEdit() {
         $.ajax({
@@ -42,11 +36,10 @@ function atualizarTabela(Id) {
             }
         });
     }
-}
+})
 
 $('.btnEditar').click(function () {
-    console.log("oi")
-    $('.modal').modal("show")
+    $('#EditarModal').modal("show")
     IdTabela = $(this).attr('value')
     EditarValores(IdTabela)
 })

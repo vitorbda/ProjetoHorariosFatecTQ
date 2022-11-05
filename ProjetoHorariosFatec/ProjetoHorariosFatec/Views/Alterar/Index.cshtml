@@ -57,12 +57,26 @@
             </a>
         </div>
         <div class="text-center mt-4 w-auto card collapse" id="CarregarTabelas">
-            <div class="loader" id="loader"></div>
-            <button class="btn btn-success mt-1" id="btAtualizar" onclick="atualizarTabela('btAtualizar')" role="button">
+            <button class="btn btn-success mt-1" id="btAtualizar" role="button">
                 Atualizar tabelas
             </button>
             <br />
             <div id="Tabela"></div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" role="dialog" id="carregar">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="loader" id="loader"></div>                    
+                <div class="col">
+                     <div class="col">Carregando</div>
+                </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
