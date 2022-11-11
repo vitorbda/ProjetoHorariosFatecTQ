@@ -8,6 +8,9 @@ A criação foi dividida entre os membros da seguinte forma: <br>
 
 No projeto **HorariosFatec**, o objetivo do grupo foi criar um sistema visando a agilidade e eficiência em buscar informações das aulas de nossa instituição.
 
+Ele foi hospedado gratuitamente no Somee. <br>
+Link: http://horariosfatec.somee.com/
+
 ## Ferramentas
 ### Front-End
 Para o front-end foi utilizado o **Javascript/jQuery**, levando em consideração sua eficiência na manipulação de elementos HTML das páginas. Foi essencial tanto pelas transições quanto pela validação dos dados dos formulários.
