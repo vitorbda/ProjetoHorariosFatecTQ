@@ -20,6 +20,7 @@ namespace ProjetoHorariosFatec.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult ListarHorarios(int Id, int Id2)
         {
             List<HorariosModel> horarios = _horariosRepositorio.ListarIdsAtivos(Id, Id2);

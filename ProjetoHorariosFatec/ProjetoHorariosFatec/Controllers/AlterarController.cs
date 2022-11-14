@@ -36,8 +36,8 @@ namespace ProjetoHorariosFatec.Controllers
                 if (ModelState.IsValid)
                 {
                     _horariosRepositorio.Atualizar(valores);
-                return NoContent();
-            }
+                    return NoContent();
+                }
             TempData["Mensagem"] = $"Erro";
             return NoContent();
         }

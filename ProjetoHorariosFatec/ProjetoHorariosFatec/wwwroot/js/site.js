@@ -37,16 +37,25 @@ $('.botaosemestre').click(function () {
         $('#CarregarTabelas').type = "hide"
         $('#CarregarTabelas').collapse("hide")
         cliqueSemestre = false
+        setTimeout(() => { $('#Tabela').html('') }, 1000)
+        
     }
 
+    var Ids = {
+        Id: localStorage.IdCurso,
+        Id2: localStorage.Semestre
+    }
+    
 
     function Tabela() {
         $.ajax({
             type: 'GET',
-            url: "/Horarios/ListarHorarios/" + localStorage.IdCurso + '?Id=' + localStorage.IdCurso + '&Id2=' + localStorage.Semestre,
+            data: Ids,
+            url: "/Horarios/ListarHorarios/",
             success: function (result) {
                 $("#Tabela").html(result)
                 EsconderCarregar()
+                console.log(Ids)
             }
         });
     }
